@@ -1,4 +1,4 @@
-import { IBuyer, IBuyerErrors } from '../../types';
+import { IBuyer, BuyerErrors } from '../../types';
 
 /**
  * Модель покупателя.
@@ -36,8 +36,8 @@ export class Buyer {
      * Валидация данных покупателя.
      * Возвращает объект с сообщениями об ошибках по полям, у которых есть проблемы.
      */
-    validate(): IBuyerErrors {
-        const errors: IBuyerErrors = {};
+    validate(): BuyerErrors {
+        const errors: BuyerErrors = {};
 
         if (!this.data.payment) {
             errors.payment = 'Не выбран вид оплаты';

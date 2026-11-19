@@ -33,11 +33,7 @@ export interface IProductsResponse {
 }
 
 /* Данные заказа, отправляемые на сервер */
-export interface IOrderPayload {
-    payment: TPayment;
-    email: string;
-    phone: string;
-    address: string;
+export interface IOrderPayload extends IBuyer {
     total: number;
     items: string[];
 }
@@ -49,9 +45,4 @@ export interface IOrderResponse {
 }
 
 /* Объект ошибки валидации полей покупателя */
-export interface IBuyerErrors {
-    payment?: string;
-    email?: string;
-    phone?: string;
-    address?: string;
-}
+export type BuyerErrors = Partial<Record<keyof IBuyer, string>>;
